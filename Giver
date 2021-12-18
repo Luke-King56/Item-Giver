@@ -28,6 +28,8 @@ ItemGiverFrame.BackgroundTransparency = 1.000
 ItemGiverFrame.BorderSizePixel = 0
 ItemGiverFrame.Position = UDim2.new(0.0527351275, 0, 0.0703655183, 0)
 ItemGiverFrame.Size = UDim2.new(0, 162, 0, 691)
+ItemGiverFrame.Enabled = true
+ItemGiverFrame.Draggable = true
 
 ItemGiverTitle.Name = "ItemGiverTitle"
 ItemGiverTitle.Parent = ItemGiverFrame
