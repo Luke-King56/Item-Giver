@@ -41,6 +41,8 @@ ItemGiverTitle.Text = "Item Giver"
 ItemGiverTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 ItemGiverTitle.TextSize = 20.000
 ItemGiverTitle.TextWrapped = true
+ItemGiverTItle.Enabled = true
+ItemGiverFrame.Draggable = true
 
 TextBox.Parent = ItemGiverFrame
 TextBox.BackgroundColor3 = Color3.fromRGB(61, 61, 61)
