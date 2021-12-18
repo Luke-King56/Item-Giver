@@ -28,6 +28,9 @@ ItemGiverFrame.BackgroundTransparency = 1.000
 ItemGiverFrame.BorderSizePixel = 0
 ItemGiverFrame.Position = UDim2.new(0.0527351275, 0, 0.0703655183, 0)
 ItemGiverFrame.Size = UDim2.new(0, 162, 0, 691)
+ItemGiverFrame.ZIndex = 6
+ItemGiverFrame.Active = true
+ItemGiverFrame.Draggable = true
 
 ItemGiverTitle.Name = "ItemGiverTitle"
 ItemGiverTitle.Parent = ItemGiverFrame
@@ -39,8 +42,7 @@ ItemGiverTitle.Text = "Item Giver"
 ItemGiverTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 ItemGiverTitle.TextSize = 20.000
 ItemGiverTitle.TextWrapped = true
-ItemGiverTitle.Active = true
-ItemGiverTitle.Draggable = true
+
 
 TextBox.Parent = ItemGiverFrame
 TextBox.BackgroundColor3 = Color3.fromRGB(61, 61, 61)
