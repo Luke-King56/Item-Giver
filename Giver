@@ -1,0 +1,168 @@
+local UIS = game:GetService("UserInputService")
+
+UIS.InputBegan:Connect(function(input)
+	if input.KeyCode == Enum.KeyCode.Delete then
+		game.CoreGui:FindFirstChild("ItemGiverGui"):Destroy()
+	end
+end)
+
+local ItemGiverGui = Instance.new("ScreenGui")
+local ItemGiverFrame = Instance.new("Frame")
+local ItemGiverTitle = Instance.new("TextLabel")
+local TextBox = Instance.new("TextBox")
+local Container = Instance.new("Frame")
+local Model = Instance.new("TextButton")
+local UIGridLayout = Instance.new("UIGridLayout")
+local OpenClose = Instance.new("TextButton")
+local Color = Instance.new("ImageLabel")
+
+--Properties:
+
+ItemGiverGui.Name = "ItemGiverGui"
+ItemGiverGui.Parent = game.CoreGui
+
+ItemGiverFrame.Name = "ItemGiverFrame"
+ItemGiverFrame.Parent = ItemGiverGui
+ItemGiverFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ItemGiverFrame.BackgroundTransparency = 1.000
+ItemGiverFrame.BorderSizePixel = 0
+ItemGiverFrame.Position = UDim2.new(0.0527351275, 0, 0.0703655183, 0)
+ItemGiverFrame.Size = UDim2.new(0, 162, 0, 691)
+
+ItemGiverTitle.Name = "ItemGiverTitle"
+ItemGiverTitle.Parent = ItemGiverFrame
+ItemGiverTitle.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+ItemGiverTitle.BorderSizePixel = 0
+ItemGiverTitle.Size = UDim2.new(0, 162, 0, 29)
+ItemGiverTitle.Font = Enum.Font.SourceSans
+ItemGiverTitle.Text = "Item Giver"
+ItemGiverTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+ItemGiverTitle.TextSize = 20.000
+ItemGiverTitle.TextWrapped = true
+
+TextBox.Parent = ItemGiverFrame
+TextBox.BackgroundColor3 = Color3.fromRGB(61, 61, 61)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0, 0, 0.0414878391, 0)
+TextBox.Size = UDim2.new(0, 162, 0, 30)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+
+Container.Name = "Container"
+Container.Parent = ItemGiverFrame
+Container.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Container.BackgroundTransparency = 1.000
+Container.BorderSizePixel = 0
+Container.ClipsDescendants = true
+Container.Position = UDim2.new(0, 0, 0.0424886271, 0)
+Container.Size = UDim2.new(0, 162, 0, 0)
+
+Model.Name = "Model"
+Model.Parent = Container
+Model.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Model.BorderSizePixel = 0
+Model.Position = UDim2.new(0, 0, 1, 0)
+Model.Size = UDim2.new(0, 162, 0, 30)
+Model.ZIndex = 0
+Model.Font = Enum.Font.SourceSans
+Model.Text = "Name"
+Model.TextColor3 = Color3.fromRGB(255, 255, 255)
+Model.TextSize = 14.000
+
+UIGridLayout.Parent = Container
+UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout.CellPadding = UDim2.new(0, 0, 0, 0)
+UIGridLayout.CellSize = UDim2.new(0, 162, 0, 30)
+
+OpenClose.Name = "OpenClose"
+OpenClose.Parent = ItemGiverFrame
+OpenClose.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+OpenClose.BackgroundTransparency = 1.000
+OpenClose.BorderSizePixel = 0
+OpenClose.Position = UDim2.new(0.833333313, 0, 0.00289435592, 0)
+OpenClose.Size = UDim2.new(0, 27, 0, 24)
+OpenClose.Font = Enum.Font.SourceSans
+OpenClose.Text = "+"
+OpenClose.TextColor3 = Color3.fromRGB(0, 0, 0)
+OpenClose.TextSize = 14.000
+OpenClose.TextWrapped = true
+
+Color.Name = "Color"
+Color.Parent = OpenClose
+Color.Active = true
+Color.AnchorPoint = Vector2.new(0.5, 0.5)
+Color.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Color.BackgroundTransparency = 1.000
+Color.Position = UDim2.new(0.5, 0, 0.5, 0)
+Color.Selectable = true
+Color.Size = UDim2.new(1, 0, 1, 0)
+Color.Image = "rbxassetid://3570695787"
+Color.ImageColor3 = Color3.fromRGB(255, 0, 0)
+Color.ScaleType = Enum.ScaleType.Slice
+Color.SliceCenter = Rect.new(100, 100, 100, 100)
+Color.SliceScale = 9.000
+
+
+local function SNHCIW_fake_script() -- Container.SizeChanger 
+	local script = Instance.new('LocalScript', Container)
+
+	local Gear = {}
+	for i,v in pairs(game.Lighting:GetChildren()) do
+		if v.Name == "Chest3Gear" or v.Name == "Chest2Gear" or v.Name == "Chest1Gear" then
+			for i, add in pairs(v:GetChildren()) do
+				table.insert(Gear, add)
+			end
+		end
+	end
+	
+	
+	for i,v in pairs(Gear) do
+		script.Parent.Size = script.Parent.Size + UDim2.new(0,0,0,30)
+		local Clone = script.Parent.Model:Clone()
+		Clone.Parent = script.Parent
+		Clone.Name = v.Name
+		Clone.Text = v.Name
+	end
+end
+coroutine.wrap(SNHCIW_fake_script)()
+local function QDMUHNG_fake_script() -- OpenClose.OpenAndClose 
+	local script = Instance.new('LocalScript', OpenClose)
+
+	local Container = script.Parent.Parent.Container
+	
+	
+	script.Parent.MouseButton1Click:Connect(function()
+	if script.Parent.Color.ImageColor3 == Color3.fromRGB(0,255,0) then
+			script.Parent.Color.ImageColor3 = Color3.fromRGB(255,0,0)
+			Container:TweenSize(UDim2.new(0, 162,0, 690), "InOut", "Linear", 0.2)
+	else
+			script.Parent.Color.ImageColor3 = Color3.fromRGB(0,255,0)
+			Container:TweenSize(UDim2.new(0, 162,0, 0), "InOut", "Linear", 0.2)
+		end
+	end)
+	
+	
+end
+coroutine.wrap(QDMUHNG_fake_script)()
+
+for i,v in pairs(Container:GetChildren()) do
+    if v:IsA("TextButton") then
+        v.MouseButton1Click:Connect(function()
+            local ohInstance1 = game:GetService("Players").LocalPlayer.leaderstats.Coins
+	        local ohNumber2 = 0
+            local ohString4 = v.Name
+            if v.Name == "Caltrops" or v.Name == "MineBomb" or v.Name == "SpikeGrenade" or v.Name == "BearTrap" or v.Name == "R80" then
+                workspace.DoShopPurchase:InvokeServer(ohInstance1, ohNumber2, "Chest3", ohString4)
+            elseif v.Name == "TBCSkateboard" or v.Name == "ROBLOXUMoped" or v.Name == "SegwayHoverBoard" or v.Name == "RobloxSkateboard" then
+                workspace.DoShopPurchase:InvokeServer(ohInstance1, ohNumber2, "Chest2", ohString4)
+	        else
+	        workspace.DoShopPurchase:InvokeServer(ohInstance1, ohNumber2, "Chest1", ohString4)
+	        end
+	        
+        end)    
+    end
+end
