@@ -1,3 +1,7 @@
+if game.CoreGui:FindFirstChild("ItemGiverGui") then
+    game.CoreGui:FindFirstChild("ItemGiverGui"):Destroy()   
+end 
+
 local UIS = game:GetService("UserInputService")
 
 UIS.InputBegan:Connect(function(input)
