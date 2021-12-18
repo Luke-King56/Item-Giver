@@ -1,7 +1,7 @@
 local UIS = game:GetService("UserInputService")
 
 UIS.InputBegan:Connect(function(input)
-	if input.KeyCode == Enum.KeyCode.Delete then
+	if input.KeyCode == Enum.KeyCode.Home then
 		game.CoreGui:FindFirstChild("ItemGiverGui"):Destroy()
 	end
 end)
