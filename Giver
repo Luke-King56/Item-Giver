@@ -166,3 +166,4 @@ for i,v in pairs(Container:GetChildren()) do
         end)    
     end
 end
+game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Menu: Codgod56", Text = "Press 'Home' to Purge UI ©Zaps", Icon = "", Duration = 3})
